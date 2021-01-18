@@ -24,5 +24,7 @@ jobs:
         repo_token: "${{ secrets.GITHUB_TOKEN }}"
         automatic_release_tag: "latest"
         prerelease: false
-        title: "Release ${{ github.ref }}"
-        files: "${{ GRUB4DOS_BIN }}"
+        title: "Release ${{ env.GRUB4DOS_BIN }}"
+        files: |
+          *.7z
+          *.zip
