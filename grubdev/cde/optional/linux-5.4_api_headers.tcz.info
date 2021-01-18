@@ -1,0 +1,18 @@
+Title:          linux-5.4_api_headers.tcz
+Description:    linux kernel api devs
+Version:        5.4
+Author:         see list of sites below
+Original-site:  see list of sites below
+Copying-policy: see list of sites below
+Size: 1.8MB
+Extension_by:   juanito
+Tags:	        linux kernel api dev
+Comments:       The Linux kernel needs to expose an Application Programming Interface (API)
+                for the system's C library (Glibc in LFS) to use. This is done by way
+                of sanitizing various C header files that are shipped in the Linux kernel source
+                ----------
+                This extension contains:
+                linux-5.4 - GPLv2 - http://www.kernel.org/pub/linux/kernel/v5.x/linux-5.4.tar.xz
+                ----------
+                first version
+Current:        2019/11/29

@@ -1,0 +1,16 @@
+eglibc_base-dev.tcz
+locale-utf8-zh.tcz
+gcc-4.8.tcz
+linux-3.0.1_api_headers.tcz
+libmpc.tcz
+automake.tcz
+make.tcz
+patch.tcz
+p7zip.tcz
+git-1.6.tcz
+svn.tcz
+openssh.tcz
+libssl-0.9.8.tcz
+nasm.tcz
+upx.tcz
+

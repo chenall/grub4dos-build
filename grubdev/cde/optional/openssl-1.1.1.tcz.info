@@ -1,0 +1,17 @@
+Title:          openssl-1.1.1
+Description:    cryptography library
+Version:        1.1.1f
+Author:         see list of sites below
+Original-site:  see list of sites below
+Copying-policy: see list of sites below
+Size: 1.8MB
+Extension_by:   juanito
+Tags:	        cryptography tls ssl
+Comments:       general-purpose cryptography library and toolkit for the tls and
+                ssl protocols
+                ----------
+                This extension contains:
+                openssl-1.1.1f - GPLv3 - https://www.openssl.org/source/openssl-1.1.1f.tar.gz
+                ----------
+Change-log:     2019/06/02 first version
+Current:        2020/04/05 updated 1.1.1b -> 1.1.1f

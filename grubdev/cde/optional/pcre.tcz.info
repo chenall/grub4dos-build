@@ -1,0 +1,14 @@
+Title:          pcre.tcz
+Description:    Perl Compatible Regular Expressions
+Version:        8.21
+Author:         Philip Hazel
+Original-site:  http://www.pcre.org
+Copying-policy: BSD, see LICENCE file
+Size:           221k
+Extension_by:   bmarkus
+Tags:           CLI LIBRARY
+Comments:       Binaries only
+                ----
+                Compiled for Core 6.0
+Change-log:     ----
+Current:        2014/09/27 First version, 8.21

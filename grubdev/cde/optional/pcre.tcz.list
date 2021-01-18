@@ -1,0 +1,13 @@
+usr/local/share/doc/License/pcre/LICENCE
+usr/local/bin/pcretest
+usr/local/bin/pcregrep
+usr/local/bin/pcre-config
+usr/local/lib/libpcre.so.0.0.1
+usr/local/lib/libpcre.so.0
+usr/local/lib/libpcre.so
+usr/local/lib/libpcreposix.so.0.0.0
+usr/local/lib/libpcreposix.so.0
+usr/local/lib/libpcreposix.so
+usr/local/lib/libpcrecpp.so.0.0.0
+usr/local/lib/libpcrecpp.so.0
+usr/local/lib/libpcrecpp.so

@@ -1,0 +1,52 @@
+Title:		open-vm-tools.tcz
+Description:	CLI utilities for VMware and ESXi hosted virtual machine clients
+Version:	11.2.0.23855 (build-16938113)
+Author:		VMware
+Original-site:	https://github.com/vmware/open-vm-tools
+Copying-policy:	GPL 2, LGPL 2.1
+Size:		764K
+Extension_by: 	andyj
+Tags:		vmware esxi client utilities virtual machine
+Comments:	Utilities for all virtual machine clients using VMware
+		Workstation Pro (full functionality):
+			copy/paste, time sync, host folders, window resizing,
+			full-screen multi-monitor, mouse auto grab/ungrab,
+			hot-plug devices (USB), sound, suspend/power-down
+		Player (limited functionality):
+			time sync, host folders, window resizing, mouse auto grab/ungrab,
+			hot-plug devices (USB), sound, suspend/power-down
+		ESXi (minimal functionality, X dependencies not required for console only VM):
+			time sync, host-client status, suspend/power-down
+		See also https://kb.vmware.com/kb/2073803
+		----
+		Download and install in console before reboot; do not install while in X.
+		Use /usr/local/etc/init.d/open-vm-tools (e.g. /opt/bootlocal.sh) to control vmtoolsd service
+		Shared folders should mount during login. If not run:
+			[ $(which vmware-checkvm) ] && [ vmware-checkvm ] && [ -d /mnt/hgfs ] && vmhgfs-fuse /mnt/hgfs
+		Kernel modules removed, now all tools are userspace.
+		Verify permissions for /dev/fuse are 1666.
+		Loading the extension should create /mnt/hgfs. Verify that it happened and the permissions are 777.
+		Files in shared folders will not be visible to anyone other than the user that
+			mounts them, including root. This is why if the shared folders are mounted
+			in a directory that is in a tree in /opt/.filetool.lst, backups will fail.
+		Xorg and its dependencies are not needed for text only VM's.
+		----
+Change-log:	2016/02/19 First version, 10.0.0, compiled for TC 7.x
+		2016/04/06 updated to version 10.0.7
+		2016/11/27 updated to version 10.1.0
+		2017/01/05 updated to version 10.1.0+git compiled for 32-bit
+		2017/07/01 updated to version 10.1.5, recompiled for TC 8.x
+		2018/01/06 updated to version 10.2.0
+		2018/04/11 updated to version 10.2.5, compiled for TC 9.x
+		2018/08/17 updated to version 10.3.0
+		2018/11/11 updated to version 10.3.5
+		2019/01/21 recompiled for TC 10.x
+		2019/02/09 removed dependence on ICU, updated power commands
+		2019/04/05 updated to version 10.3.10
+		2019/07/06 shared folder changes, recompiled with openssl-1.1.1
+		2019/10/22 upgraded to version 11.0.1
+		2020/02/06 updated to version 11.0.5, recompiled for TC 11.x
+		2020/06/13 updated to version 11.1.0
+		2020/09/11 updated to version 11.1.5
+Current:	2020/11/06 updated to version 11.2.0
+

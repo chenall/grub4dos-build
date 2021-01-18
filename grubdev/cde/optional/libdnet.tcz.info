@@ -1,0 +1,15 @@
+Title:		libdnet.tcz
+Description:	Library for simplified portable interface to low-level networking routines
+Version:	1.12
+Author:		Dug Song <dugsong@monkey.org>
+Original-site:	http://libdnet.sourceforge.org
+Copying-policy:	free BSD style
+Size:		32K
+Extension_by: 	andyj
+Tags:		library network
+Comments:	Binaries only
+		----
+Change-log:	2016/04/06 First version, 1.12, compiled for TC 7.x
+		2017/07/01 recompiled for TC 8.x
+Current:	2019/01/21 recompiled for TC 10.x
+

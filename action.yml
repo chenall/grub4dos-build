@@ -1,0 +1,21 @@
+name: 'grub4dos dev'
+description: 'grub4dos build env'
+author: 'chenall'
+
+inputs:
+  srcDir:
+    description: 'grub4dos-src'
+    required: true
+runs:
+  using: 'composite'
+  steps:
+    - id: start-qemu-vm
+      run: env && cd $GITHUB_ACTION_PATH && chmod +x ./start-grubdev.sh && ./start-grubdev.sh
+      shell: bash
+    - id: start-build
+      run: pwd && chmod +x $GITHUB_ACTION_PATH/build.sh && $GITHUB_ACTION_PATH/build.sh
+      shell: bash
+
+branding:
+  icon: 'terminal'
+  color: 'gray-dark'

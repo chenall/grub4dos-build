@@ -1,0 +1,13 @@
+Title:          procps-ng.tcz
+Description:    Set of command-line utilities that provide information out of procfs
+Version:        3.3.15
+Author:         Various, see source tarball for list
+Original-site:  http://sourceforge.net/projects/procps-ng/
+Copying-policy: GPL v2
+Size:           180KB
+Extension_by:   bmarkus
+Tags:           CLI SYSTEM
+Comments:       Binaries only
+                ----
+Change-log:     2015/07/04 first version
+Current:        2019/02/17 updated 3.3.10 -> 3.3.15 (juanito)

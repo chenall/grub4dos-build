@@ -1,0 +1,28 @@
+name: grub4dos 编译测试
+on: [push]
+jobs:
+  
+  build:
+    name: build
+    runs-on: ubuntu-16.04
+    steps:
+    - name: 下载 grub4dos efi 版最新源码
+      uses: actions/checkout@v2
+      with:
+        repository: chenall/grub4dos
+        ref: efi
+    - uses: chenall/grub4dos-build@main
+      with:
+        srcDir: grub4dos-src
+    - name: 上传文件到 transfer.sh
+      run: |
+        curl -H "Max-Downloads: 100" -H "Max-Days: 5" --upload-file ./$GRUB4DOS_BIN https://transfer.sh
+#    - uses: csexton/debugger-action@master
+    - name: 发布
+      uses: marvinpinto/action-automatic-releases@latest
+      with:
+        repo_token: "${{ secrets.GITHUB_TOKEN }}"
+        automatic_release_tag: "latest"
+        prerelease: false
+        title: "Release ${{ github.ref }}"
+        files: "${{ GRUB4DOS_BIN }}"

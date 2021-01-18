@@ -1,0 +1,14 @@
+Title:          libffi.tcz
+Description:    Foreign function interface
+Version:        3.2.1
+Author:         Anthony Green
+Original-site:  http://sourceware.org/libffi/
+Copying-policy: Free, see sorce tarball for details
+Size:           16k
+Extension_by:   bmarkus
+Tags:           LIBRARY
+Comments:       Binaries only
+                ----
+                Compiled for Core 6.x
+Change-log:     2014/09/27 First version, 3.1
+Current:        2015/06/05 Updated to 3.2.1

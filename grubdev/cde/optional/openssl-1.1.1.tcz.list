@@ -1,0 +1,16 @@
+/usr/local/bin/c_rehash
+/usr/local/bin/openssl
+/usr/local/etc/ssl/ct_log_list.cnf.dist
+/usr/local/etc/ssl/misc/CA.pl
+/usr/local/etc/ssl/misc/tsget
+/usr/local/etc/ssl/misc/tsget.pl
+/usr/local/etc/ssl/openssl.cnf
+/usr/local/etc/ssl/openssl.cnf.dist
+/usr/local/lib/engines-1.1/afalg.so
+/usr/local/lib/engines-1.1/capi.so
+/usr/local/lib/engines-1.1/padlock.so
+/usr/local/lib/libcrypto.so
+/usr/local/lib/libcrypto.so.1.1
+/usr/local/lib/libssl.so
+/usr/local/lib/libssl.so.1.1
+/usr/local/tce.installed/openssl-1.1.1

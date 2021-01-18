@@ -1,0 +1,17 @@
+Title:		fuse.tcz
+Description:	A simple user-space filesystem interface for Linux
+Version:	2.8.5
+Author:		Miklos Szeredi <mszeredi@inf.bme.hu>
+Original-site:	http://sourceforge.net/projects/fuse/
+Copying-policy:	GPL
+Size:		88KB
+Extension_by:	Daniel Barnes
+Tags:	        user-space filesystem interface Linux
+Comments:	fuse for tinycore
+		Can use with obex.tcz and obexfs to mount fs over bt/irda
+Change-log:	2008/10/08 - Re-compiled to /usr/local and updated to 2.7.4
+		2010/02/26 - Updated to 2.8.3
+		2010/08/17 - Updated to 2.8.4
+		2010/10/17 - Updated to 2.8.5
+                2016/01/23 - Updated startup script (Curaga)
+Current:	2020/06/10 split out devs (juanito)

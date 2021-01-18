@@ -1,0 +1,18 @@
+Title:          ncursesw.tcz
+Description:    ncurses wide
+Version:        6.1
+Author:         see list of sites below
+Original-site:  see list of sites below
+Copying-policy: see list of sites below
+Size: 212KB
+Extension_by:   juanito
+Tags:           terminal character wide
+Comments:       libraries for terminal-independent handling of character screens
+                ----------
+                please compile against this version of ncurses by default
+                ----------
+                This extension contains:
+                ncurses-6.1 - BSD - http://ftp.gnu.org/gnu/ncurses/ncurses-6.1.tar.gz
+                ----------
+Change-log:     2018/03/02 first version
+Current:        2018/10/29 updated 6.0 -> 6.1

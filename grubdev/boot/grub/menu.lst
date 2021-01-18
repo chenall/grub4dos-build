@@ -1,0 +1,5 @@
+default 0
+timeout 0
+title tinycore linux 
+kernel /boot/vmlinuz cde
+initrd /boot/core.gz /boot/opt.gz

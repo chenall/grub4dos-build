@@ -1,0 +1,17 @@
+/usr/local/bin/scp
+/usr/local/bin/sftp
+/usr/local/bin/ssh
+/usr/local/bin/ssh-add
+/usr/local/bin/ssh-agent
+/usr/local/bin/ssh-copy-id
+/usr/local/bin/ssh-keygen
+/usr/local/bin/ssh-keyscan
+/usr/local/etc/init.d/openssh
+/usr/local/etc/ssh/moduli
+/usr/local/etc/ssh/ssh_config.orig
+/usr/local/etc/ssh/sshd_config.orig
+/usr/local/lib/openssh/sftp-server
+/usr/local/lib/openssh/ssh-keysign
+/usr/local/lib/openssh/ssh-pkcs11-helper
+/usr/local/sbin/sshd
+/usr/local/tce.installed/openssh

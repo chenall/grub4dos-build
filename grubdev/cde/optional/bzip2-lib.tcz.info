@@ -1,0 +1,16 @@
+Title:		bzip2-lib.tcz
+Description:	bzip2
+Version:	1.0.8
+Author:		Julian Seward
+Original-site:	http://www.bzip.org/
+Copying-policy:	bzip2 license
+Size:		28KB
+Extension_by:	Daniel Barnes
+Tags:		bzip2
+Comments:	---
+Change-log:	2009/03/04 Initial release
+                2010/10/15 Update to 1.0.6
+                2014/09/18 recompiled on tc-6.x (juanito)
+                2015/10/02 recompiled on tc-7.x (juanito)
+                2015/16/20 recompiled on tc-8.x (juanito)
+Current:	2019/11/29 updated 1.0.6-> 1.0.8 (juanito)
