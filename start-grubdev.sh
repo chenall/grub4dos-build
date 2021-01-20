@@ -22,4 +22,3 @@ time timeout 10m nc -l -p 22223 || exit $?
 [ -f ~/.ssh/known_hosts ] || touch ~/.ssh/known_hosts
 [ -f ~/.ssh/config ] || touch ~/.ssh/config
 cat ssh_config >> ~/.ssh/config
-ssh-keyscan -p 22222 127.0.0.1 >> ~/.ssh/known_hosts
