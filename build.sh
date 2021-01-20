@@ -1,6 +1,6 @@
 #!/bin/sh
 env | sort
-
+set -e
 for src in $grub4dos_src
 do
     if [ ! -f $src/grub4dos_version ]; then
@@ -8,13 +8,16 @@ do
         exit 1
     fi
     dst=$src
-    [ "$src" == "." ] && dst=grub4dos
+    if [ "$src" = "." ]; then
+        src=`pwd`
+        dst=grub4dos
+    fi
     echo 准备编译 $dst
     GRUB4DOS_VER=`cat $src/grub4dos_version`
     scp -r $src/ grubdev:~/$dst
-    ssh grubdev "rm -rf /tmp/grub4dos-temp;cd ~/$src && ./build"
-    scp grubdev:~/$dst/grub4dos-*.7z ./
+    ssh grubdev "rm -rf /tmp/grub4dos-temp;cd ~/$dst && ./build"
+    scp grubdev:~/$dst/grub4dos-*.7z ./ 
 done
-ssh grubdev sudo poweroff
+#ssh grubdev sudo poweroff
 echo "GRUB4DOS_VER=$GRUB4DOS_VER" >> $GITHUB_ENV
 echo "GRUB4DOS_BIN=grub4dos-$GRUB4DOS_VER-`date -u +%Y-%m-%d`.7z" >> $GITHUB_ENV
