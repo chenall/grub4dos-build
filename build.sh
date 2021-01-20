@@ -1,12 +1,18 @@
 #!/bin/sh
+env | sort
 
-if [ ! -f grub4dos_version ]; then
-    echo 错误的 grub4dos 源码目录
-    exit
-fi
-GRUB4DOS_VER=`cat grub4dos_version`
+for src in $grub4dos_src
+do
+    if [ ! -f $src/grub4dos_version ]; then
+        echo 错误的 grub4dos 源码目录: $src
+        exit 1
+    fi
+    echo 准备编译 $src
+    GRUB4DOS_VER=`cat $src/grub4dos_version`
+    scp -r $src/ grubdev:~/$src
+    ssh grubdev "rm -rf /tmp/grub4dos-temp;cd ~/$src && ./build"
+    scp grubdev:~/$src/grub4dos-*.7z ./
+done
+ssh grubdev sudo poweroff
 echo "GRUB4DOS_VER=$GRUB4DOS_VER" >> $GITHUB_ENV
 echo "GRUB4DOS_BIN=grub4dos-$GRUB4DOS_VER-`date -u +%Y-%m-%d`.7z" >> $GITHUB_ENV
-scp -r -P 22222 `pwd` tc@127.0.0.1:~/grub4dos
-ssh -p 22222 tc@127.0.0.1 "cd ~/grub4dos && ./build"
-scp -P 22222 tc@127.0.0.1:~/grub4dos/grub4dos-*.7z ./

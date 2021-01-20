@@ -1,0 +1,22 @@
+Title:		git.tcz
+Description:	the fast version control system
+Version:	2.24.0
+Author:		Various
+Original-site:	http://gitscm.org/
+Copying-policy:	GPL
+Size:		6.1M
+Extension_by:	juanito, jls_legalize, SvOlli
+Tags:		git scm
+Comments:	Compiled with libcurl, perl and python enabled
+		Some modes of operation require perl or python extensions
+                ----------
+Change-log:	2008/12/17 first version
+		2009/10/25 updated by jls_legalize 2 version 1.6.5.1
+		2010/07/14 rebuild from scratch, updated to version 1.7.1.1 and
+		added git-gui package
+		2010/07/31 update to 1.7.2.1
+		2010/08/13 added workaround for bug that prevented http-download
+		2011/09/26 update to 1.7.6.4 and Tiny Core 4.x
+                2012/11/19 update to 1.8.0
+                2016/12/29 updated 1.8.0 -> 2.9.2
+Current:	2019/12/12 updated 2.9.2 -> 2.24.0

@@ -1,0 +1,11 @@
+#!/bin/sh
+if [ ! -d /usr/local/etc ]; then
+	mkdir -p /usr/local/etc
+fi
+if [ ! -f /usr/local/etc/ca-certificates.conf ]; then
+	cp -p /usr/local/share/ca-certificates/files/ca-certificates.conf /usr/local/etc
+fi
+
+update-ca-certificates
+ln -s /usr/local/etc/ssl/certs/ca-certificates.crt /usr/local/etc/ssl/cacert.pem
+ln -s /usr/local/etc/ssl/certs/ca-certificates.crt /usr/local/etc/ssl/ca-bundle.crt

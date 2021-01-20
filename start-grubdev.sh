@@ -1,10 +1,25 @@
 #!/bin/sh
+for test in $grub4dos_src
+do
+  if [ ! -f $test/grub4dos_version ]; then
+        echo 错误的 grub4dos 源码目录
+        exit 1
+  fi
+done
 
-sudo apt -y install qemu-system-x86 genisoimage
+if [ -e /dev/kvm ]; then
+    qemu=kvm
+else
+    qemu=qemu-system-x86_64
+fi
+
+sudo apt -y install qemu-kvm genisoimage
 genisoimage -hide-joliet boot.catalog -l -joliet-long -no-emul-boot -boot-load-size 4 -o grubdev.iso -v -V "grubdev" -b boot/grldr grubdev
-sudo qemu-system-x86_64 -m 1G -cdrom grubdev.iso -boot d -display none -net user,hostfwd=tcp::22222-:22 -net nic &
-echo 等待开发环境启动完成，预计需要 3 － 5 分钟....
-timeout 5m nc -l -p 22223
-[ -d ~/.ssh ] || mkdir ~/.ssh
+echo "等待开发环境[${qemu}]启动完成，预计需要 3 － 10 分钟...."
+sudo $qemu -m 1G -cdrom grubdev.iso -boot d -display none -net user,hostfwd=tcp::22222-:22 -net nic &
+time timeout 10m nc -l -p 22223 || exit $?
+[ -d ~/.ssh ] || mkdir -p ~/.ssh
 [ -f ~/.ssh/known_hosts ] || touch ~/.ssh/known_hosts
+[ -f ~/.ssh/config ] || touch ~/.ssh/config
+cat ssh_config >> ~/.ssh/config
 ssh-keyscan -p 22222 127.0.0.1 >> ~/.ssh/known_hosts

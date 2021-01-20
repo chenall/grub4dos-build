@@ -1,0 +1,14 @@
+Title:          curl.tcz
+Description:    Client and library for transferring data
+Version:        7.67.0
+Author:         Daniel Stenberg
+Original-site:  http://curl.haxx.se
+Copying-policy: Free
+Size:           288KB
+Extension_by:   bmarkus
+Tags:           NETWORK LIBRARY CLI FILE TRANSFER TRANSFER
+Comments:       Binaries only
+                ----
+Change-log:     2016/04/06 first version
+                2017/08/09 updated 7.48.0 -> 7.54.1 (juanito)
+Current:        2019/12/12 updated 7.54.1 -> 7.67.0 (juanito)

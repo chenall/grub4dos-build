@@ -1,0 +1,18 @@
+Title:          expat2.tcz
+Description:    XML parser library
+Version:        2.2.9
+Author:         James Clark
+Original-site:  http://expat.sourceforge.net
+Copying-policy: OpenSource, see COPYING
+Size:           72KB
+Extension_by:   bmarkus
+Tags:           xml parser
+Comments:       Binaries only
+                ----
+Change-log:     2013/06/14 First version, 2.1.0
+                2014/09/18 recompiled on tc-6.x (juanito)
+                2015/10/02 recompiled on tc-7.x (juanito)
+                2016/10/20 updated 2.1.0 -> 2.2.0 (juanito)
+                2017/12/09 updated 2.2.0 -> 2.2.5 (juanito)
+                2018/11/04 updated 2.2.5 -> 2.2.6 (juanito)
+Current:        2019/11/29 updated 2.2.6 -> 2.2.9 (juanito)
