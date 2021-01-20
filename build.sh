@@ -7,11 +7,13 @@ do
         echo 错误的 grub4dos 源码目录: $src
         exit 1
     fi
-    echo 准备编译 $src
+    dst=$src
+    [ "$src" == "." ] && dst=grub4dos
+    echo 准备编译 $dst
     GRUB4DOS_VER=`cat $src/grub4dos_version`
-    scp -r $src/ grubdev:~/$src
+    scp -r $src/ grubdev:~/$dst
     ssh grubdev "rm -rf /tmp/grub4dos-temp;cd ~/$src && ./build"
-    scp grubdev:~/$src/grub4dos-*.7z ./
+    scp grubdev:~/$dst/grub4dos-*.7z ./
 done
 ssh grubdev sudo poweroff
 echo "GRUB4DOS_VER=$GRUB4DOS_VER" >> $GITHUB_ENV
