@@ -1,0 +1,16 @@
+Title:          liblzma-dev.tcz
+Description:    Data compression library
+Version:        5.2.4
+Author:         Various
+Original-site:  http://tukaani.org/xz/
+Copying-policy: Various, see details in xz-doc.tcz
+Size:           64KB
+Extension_by:   bmarkus
+Tags:           COMPRESSION LIBRARY
+Comments:       Dev files
+Change-log:     ---- 
+                2016/04/11 First version, 5.2.2
+                2016/10/20 recompiled on tc-8.x (juanito)
+                2017/12/09 updated 5.2.2 -> 5.2.3 (juanito)
+                2018/11/04 updated 5.2.3 -> 5.2.4 (juanito)
+Current:        2019/11/29 recompiled for tc-11 (juanito)

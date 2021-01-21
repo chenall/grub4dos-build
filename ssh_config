@@ -1,5 +1,6 @@
 Host grubdev
-     Hostname 127.0.0.1
-     User tc
+     HostName 127.0.0.1
      Port 22222
+     User tc
      StrictHostKeyChecking no
+     IdentityFile ~/.ssh/grubdev.key
