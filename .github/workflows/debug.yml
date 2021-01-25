@@ -1,0 +1,58 @@
+name: grub4dos 内置调用编译调试
+
+on: 
+  push:
+   branches: [ "debug*" ]
+
+jobs:
+
+  build1:
+    name: build 0.4.5 with gcc-multilib
+    runs-on: ubuntu-18.04
+    env:
+      DEBUG_ACTION: true
+      TIMEOUT_CONTINUE: 1
+    steps:
+    - uses: actions/checkout@v2
+    - name: 下载grub4dos-efi源码
+      uses: actions/checkout@v2
+      with:
+        repository: chenall/grub4dos
+        ref: efi
+        path: efi
+    - name: 下载grub4dos-0.4.6a源码
+      uses: actions/checkout@v2
+      with:
+        repository: chenall/grub4dos
+        ref: 0.4.6a
+        path: 0.4.6a
+    - name: 下载ipxe源码
+      uses: actions/checkout@v2
+      with:
+        repository: ipxe/ipxe
+        path: 0.4.6a/ipxe
+    - name: 开始编译（调用内置组件）
+      uses: ./
+      with:
+        srcDir: "efi 0.4.6a"
+        useQemu: 0
+
+  build2:
+    name: build 0.4.5 with qemu
+    runs-on: ubuntu-18.04
+    env:
+      DEBUG_ACTION: true
+      TIMEOUT_CONTINUE: 1
+    steps:
+    - uses: actions/checkout@v2
+    - name: 下载grub4dos-efi源码
+      uses: actions/checkout@v2
+      with:
+        repository: chenall/grub4dos
+        ref: efi
+        path: efi
+    - name: 开始编译（调用内置组件）
+      uses: ./
+      with:
+        srcDir: "efi"
+        useQemu: 1

@@ -3,6 +3,9 @@ description: 'grub4dos build env'
 author: 'chenall'
 
 inputs:
+  useQemu:
+    description: '使用 qemu 虚拟的 tinycorelinux 32位环境进行编译'
+    default: 0
   srcDir:
     description: 'grub4dos-src'
     required: true
@@ -10,16 +13,25 @@ inputs:
 runs:
   using: 'composite'
   steps:
-    - id: start-qemu-vm
-      run: env && cd $GITHUB_ACTION_PATH && chmod +x ./start-grubdev.sh && ./start-grubdev.sh
+    - id: pre-debug-check
+      run: ./tmate.sh
+      shell: bash
+    - id: start-grubdev
+      env:
+        INPUT_USEQEMU: ${{ inputs.useQemu }}
+      run: |
+        cd $GITHUB_ACTION_PATH && chmod +x ./start-grubdev.sh && ./start-grubdev.sh
       shell: bash
     - id: start-build
       env:
+        INPUT_USEQEMU: ${{ inputs.useQemu }}
         grub4dos_src: ${{ inputs.srcDir }}
         COMMIT_RANGE: "${{ github.event.before || github.event.pull_request.base.sha }}...${{ github.sha }}"
-      run: pwd && chmod +x $GITHUB_ACTION_PATH/build.sh && $GITHUB_ACTION_PATH/build.sh
+      run: chmod +x $GITHUB_ACTION_PATH/build.sh && $GITHUB_ACTION_PATH/build.sh
       shell: bash
-
+    - id: end-debug-check
+      run: ./tmate.sh
+      shell: bash
 branding:
   icon: 'terminal'
   color: 'gray-dark'

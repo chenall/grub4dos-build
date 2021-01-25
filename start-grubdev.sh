@@ -1,4 +1,12 @@
 #!/bin/sh
+
+set -e
+sudo apt-get -y update
+
+if [ ! "$INPUT_USEQEMU" = "1" ]; then
+    sudo apt install -y gcc-4.8 gcc-4.8-multilib nasm upx upx-ucl p7zip-full autoconf automake make patch binutils-dev liblzma-dev syslinux isolinux genisoimage
+    exit
+fi
 for test in $grub4dos_src
 do
   if [ ! -f $test/grub4dos_version ]; then

@@ -1,10 +1,14 @@
 name: grub4dos 内置调用编译测试
-on: [push]
+
+on: 
+  push:
+   branches-ignore: [ "debug*" ]
+
 jobs:
 
   build1:
-    name: build 0.4.5
-    runs-on: ubuntu-16.04
+    name: build 0.4.5 with gcc-multilib
+    runs-on: ubuntu-18.04
     steps:
     - uses: actions/checkout@v2
     - name: 下载 grub4dos 0.4.5c 版最新源码
@@ -13,17 +17,14 @@ jobs:
         repository: chenall/grub4dos
         ref: master
         path: 0.4.5c
-    - uses: csexton/debugger-action@master
-      if: ${{ contains(github.ref,'debug') || contains(github.ref,'test') }}
     - name: 开始编译（调用内置组件）
       uses: ./
       with:
         srcDir: "0.4.5c"
-    - uses: csexton/debugger-action@master
-      if: ${{ contains(github.ref,'debug') || contains(github.ref,'test') }}
+        useQemu: 0
   build2:
-    name: build 0.4.6a
-    runs-on: ubuntu-16.04
+    name: build 0.4.6a with gcc-multilib
+    runs-on: ubuntu-18.04
     steps:
     - uses: actions/checkout@v2
     - name: 下载 grub4dos 0.4.6a 版最新源码
@@ -40,10 +41,11 @@ jobs:
     - name: 开始编译（调用内置组件）
       uses: ./
       with:
+        useQemu: 0
         srcDir: "0.4.6a"
   build3:
-    name: build efi
-    runs-on: ubuntu-16.04
+    name: build efi with gcc-multilib
+    runs-on: ubuntu-18.04
     steps:
     - uses: actions/checkout@v2
     - name: 下载 grub4dos efi 版最新源码
@@ -56,8 +58,7 @@ jobs:
       uses: ./
       with:
         srcDir: "efi"
-    - uses: csexton/debugger-action@master
-      if: ${{ contains(github.ref,'debug') || contains(github.ref,'test') }}
+        useQemu: 0
     - name: 发布
       uses: marvinpinto/action-automatic-releases@latest
       with:
@@ -68,3 +69,19 @@ jobs:
         files: |
           *.7z
           *.zip
+  build4:
+    name: build efi with qemu
+    runs-on: ubuntu-18.04
+    steps:
+    - uses: actions/checkout@v2
+    - name: 下载 grub4dos efi 版最新源码
+      uses: actions/checkout@v2
+      with:
+        repository: chenall/grub4dos
+        ref: efi
+        path: efi
+    - name: 开始编译（调用内置组件）
+      uses: ./
+      with:
+        srcDir: "efi"
+        useQemu: 1
