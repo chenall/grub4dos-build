@@ -14,7 +14,7 @@ runs:
   using: 'composite'
   steps:
     - id: pre-debug-check
-      run: ./tmate.sh
+      run: $GITHUB_ACTION_PATH/tmate.sh
       shell: bash
     - id: start-grubdev
       env:
@@ -30,7 +30,7 @@ runs:
       run: chmod +x $GITHUB_ACTION_PATH/build.sh && $GITHUB_ACTION_PATH/build.sh
       shell: bash
     - id: end-debug-check
-      run: ./tmate.sh
+      run: $GITHUB_ACTION_PATH/tmate.sh
       shell: bash
 branding:
   icon: 'terminal'
