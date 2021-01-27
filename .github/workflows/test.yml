@@ -69,6 +69,7 @@ jobs:
         files: |
           *.7z
           *.zip
+          efi/*.7z
   build4:
     name: build efi with qemu
     runs-on: ubuntu-18.04
