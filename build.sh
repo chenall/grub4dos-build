@@ -1,6 +1,7 @@
 #!/bin/bash
 
 ACTION_PATH=$(dirname $(readlink -f $0))
+export CC=gcc-4.8
 $ACTION_PATH/build-ext.sh
 chmod +x $ACTION_PATH/build-page.sh
 set -e
