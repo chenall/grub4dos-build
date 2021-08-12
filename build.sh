@@ -20,9 +20,18 @@ do
     echo 准备编译 $dst
     GRUB4DOS_VER=`cat grub4dos_version`
     if [ "$INPUT_USEQEMU" = "1" ]; then
+		# ipxe 不使用 qemu 编译(因为太慢了)
+		[ -d ipxe ] && mv ipxe ../
         scp -r `pwd` grubdev:~/$dst
         ssh grubdev "rm -rf /tmp/grub4dos-temp;cd ~/$dst && ./build"
         scp grubdev:~/$dst/grub4dos-*.7z ./ 
+        if [ -d ../ipxe ]; then
+			## 编译 ipxegrldr        
+			GRUB4DOS_BIN=`ls grub4dos-$GRUB4DOS_VER-*.7z`
+			7z x -r -y -ssc- ${GRUB4DOS_BIN} grldr
+			mv -f grub4dos-${GRUB4DOS_VER}/grldr .
+			make -j -C ../ipxe/src bin/undionly.kpxe EMBED=`pwd`/ipxegrldr.ipxe,`pwd`/grldr	&& cp -f ../ipxe/src/bin/undionly.kpxe grub4dos-${GRUB4DOS_VER}/ipxegrldr && 7z a ${GRUB4DOS_BIN} grub4dos-${GRUB4DOS_VER}
+		fi
     else
         if [ -d ipxe ]; then
             #因为默认下载不是完整的代码不包含 tag 信息，ipxe 编译必须包含 tag,否则会报错
