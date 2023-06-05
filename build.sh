@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ACTION_PATH=$(dirname $(readlink -f $0))
-export CC=gcc-4.8
+export CC=gcc-11
 $ACTION_PATH/build-ext.sh
 chmod +x $ACTION_PATH/build-page.sh
 set -e
@@ -42,7 +42,7 @@ do
             make -j -C src bin/undionly.pxe
             cd ..
         fi
-        CC=gcc-4.8 ./build
+        CC=gcc-11 ./build
     fi
 
     GRUB4DOS_BIN=`ls grub4dos-$GRUB4DOS_VER-*.7z`
