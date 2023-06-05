@@ -2,7 +2,7 @@
 
 set -e
 sudo apt-get -y update
-sudo apt install -y gcc-4.8 gcc-4.8-multilib nasm upx upx-ucl p7zip-full autoconf automake make patch binutils-dev liblzma-dev syslinux isolinux genisoimage
+sudo apt install -y gcc-11 gcc-11-multilib nasm upx upx-ucl p7zip-full autoconf automake make patch binutils-dev liblzma-dev syslinux isolinux genisoimage
 if [ ! "$INPUT_USEQEMU" = "1" ]; then
     exit
 fi
